@@ -2,16 +2,17 @@ import React from 'react';
 import Book from './Book';
 
 const Bookshelf = (props) => {
-  const { name, shelf, books } = props;
-  console.log(books);
+  const { name, shelf, books, onBookShelfChange } = props;
+  const shelfBooks = books.filter((book) => book.shelf === shelf);
+
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>{name}</h2>
       <div className='bookshelf-books'>
         <ol className='books-grid'>
-          {books.map((book) => (
+          {shelfBooks.map((book) => (
             <li key={book.id}>
-              <Book book={book} shelf={shelf} />
+              <Book book={book} shelf={shelf} onBookShelfChange={onBookShelfChange} />
             </li>
           ))}
         </ol>

@@ -11,17 +11,31 @@ export default class BooksApp extends React.Component {
   };
 
   componentDidMount() {
+    this.getAllBooks();
+  }
+
+  getAllBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState(() => ({
         books,
       }));
     });
-  }
+  };
+
+  onBookShelfChange = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      this.getAllBooks();
+    });
+  };
 
   render() {
     return (
       <div className='app'>
-        <Route exact path='/' render={() => <ListBooks books={this.state.books} />} />
+        <Route
+          exact
+          path='/'
+          render={() => <ListBooks books={this.state.books} onBookShelfChange={this.onBookShelfChange} />}
+        />
         <Route exact path='/search-books' render={() => <SearchBooks />} />
       </div>
     );
