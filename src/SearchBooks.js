@@ -14,8 +14,9 @@ export default class SearchBooks extends React.Component {
       () => ({ searchTerm: searchTerm.trim() }),
       () => {
         BooksAPI.search(this.state.searchTerm).then((books) => {
+          const searchedBooks = books && Array.isArray(books) ? books : [];
           this.setState(() => ({
-            books,
+            books: searchedBooks,
           }));
         });
       }
