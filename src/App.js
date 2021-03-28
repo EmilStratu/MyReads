@@ -38,7 +38,7 @@ export default class BooksApp extends React.Component {
         />
         <Route
           exact
-          path='/search-books'
+          path='/search'
           render={() => <SearchBooks books={this.state.books} onBookShelfChange={this.onBookShelfChange} />}
         />
       </div>

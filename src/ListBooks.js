@@ -22,7 +22,7 @@ const ListBooks = (props) => {
           <Bookshelf name='Read' shelf='read' books={books} onBookShelfChange={onBookShelfChange} />
         </div>
       </div>
-      <Link to='/search-books' className='open-search'>
+      <Link to='/search' className='open-search'>
         <button>Add a book</button>
       </Link>
     </div>
