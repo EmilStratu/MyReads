@@ -5,7 +5,7 @@ import SearchBooks from './SearchBooks';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 
-class BooksApp extends React.Component {
+export default class BooksApp extends React.Component {
   state = {
     books: [],
   };
@@ -19,5 +19,3 @@ class BooksApp extends React.Component {
     );
   }
 }
-
-export default BooksApp;
